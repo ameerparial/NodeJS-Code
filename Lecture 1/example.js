@@ -13,4 +13,13 @@ async function getStoreData(){
 //Independent async task (Parallel Tasks)
 const [ApiData, db] = await Promise.all([getDataFromAPI(), getFromDB()]);
 
+//Second method
+//If any promise fails then it will go to catch block.
+Promise.all([getDataFromAPI(), getFromDB()]).then(function([api, db]){
+
+
+}).catch(function(err){
+    console.log(err);
+});
+
 
